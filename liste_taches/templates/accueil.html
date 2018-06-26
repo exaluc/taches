@@ -1,5 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    Hey
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-warning aler-dismissable" role="aler">
+            <button class="close" data-dismiss="alert">
+                <smal><sup>x</sup></smal>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+{% endif %}    
+
+{% if all_items %}
+            <table class="table table-bordered">        
+        {% for things in all_items %}
+                <tr>
+                    <td>{{ things.item }}</td>
+                    <td><center>{{ things.completed }}</center></td>
+                    <td><center>Effacer</center></td>
+                </tr>
+        {% endfor %}
+            </table>
+{% endif %}            
+
+
+
 {% endblock %}

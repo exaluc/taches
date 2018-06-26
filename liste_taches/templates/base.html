@@ -11,6 +11,7 @@
     <title>Hello, world!</title>
   </head>
   <body>
+        <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="{% url 'accueil' %}">Taches</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,16 +24,20 @@
 
 
                   </ul>
-                  <form class="form-inline my-2 my-lg-0">
+                  <form class="form-inline my-2 my-lg-0" method="POST">
                   {% csrf_token %}    
                     <input class="form-control mr-sm-2" type="search" placeholder="Contenu" aria-label="Search" name="item">
                     <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Ajouter à la liste</button>
                   </form>
                 </div>
               </nav>
+            </header>
+<div class="row">                     
 <div class="container">
+    <br/>     
     {% block content %}
     {% endblock %}
+</div>
 </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
