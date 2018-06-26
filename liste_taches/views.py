@@ -1,3 +1,5 @@
 from django.shortcuts import render
+from .models import Liste
 
-# Create your views here.
+def accueil(request):
+    return render(request, "accueil.html")
