@@ -16,11 +16,19 @@
 {% if all_items %}
             <table class="table table-bordered">        
         {% for things in all_items %}
-                <tr>
-                    <td>{{ things.item }}</td>
-                    <td><center>{{ things.completed }}</center></td>
+                {% if things.completed %}
+                <tr class="table-secondary">
+                    <td class="striker">{{ things.item }}</td>
+                    <td><center><a href="{% url 'reprendre' things.id %}">Reprendre</a></center></td>
                     <td><center><a href="{% url 'effacer' things.id %}">Effacer</a></center></td>
                 </tr>
+                {% else %}
+                <tr>
+                        <td>{{ things.item }}</td>
+                        <td><center><a href="{% url 'fini' things.id %}">Fini</a></center></td>
+                        <td><center><a href="{% url 'effacer' things.id %}">Effacer</a></center></td>
+                </tr>
+                {% endif %}
         {% endfor %}
             </table>
 {% endif %}            

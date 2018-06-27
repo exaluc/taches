@@ -22,3 +22,15 @@ def effacer(request, liste_id):
     item.delete()
     messages.success(request, ('Contenu effacé!'))
     return redirect('accueil')
+
+def reprendre(request, liste_id):
+    item = Liste.objects.get(pk=liste_id)
+    item.completed = False
+    item.save()
+    return redirect('accueil')
+
+def fini(request, liste_id):
+    item = Liste.objects.get(pk=liste_id)
+    item.completed = True
+    item.save()
+    return redirect('accueil')
