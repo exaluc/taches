@@ -19,7 +19,7 @@
                 <tr>
                     <td>{{ things.item }}</td>
                     <td><center>{{ things.completed }}</center></td>
-                    <td><center>Effacer</center></td>
+                    <td><center><a href="{% url 'effacer' things.id %}">Effacer</a></center></td>
                 </tr>
         {% endfor %}
             </table>

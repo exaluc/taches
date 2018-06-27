@@ -16,3 +16,9 @@ def accueil(request):
     else:
         all_items = Liste.objects.all
         return render(request, 'accueil.html', {'all_items': all_items})        
+
+def effacer(request, liste_id):
+    item = Liste.objects.get(pk=liste_id)
+    item.delete()
+    messages.success(request, ('Contenu effacé!'))
+    return redirect('accueil')
