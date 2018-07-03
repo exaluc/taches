@@ -18,13 +18,13 @@
         {% for things in all_items %}
                 {% if things.completed %}
                 <tr class="table-secondary">
-                    <td class="striker">{{ things.item }}</td>
+                    <td class="striker"><a href="{% url 'modifier' things.id %}">{{ things.item }}</a></td>
                     <td><center><a href="{% url 'reprendre' things.id %}">Reprendre</a></center></td>
                     <td><center><a href="{% url 'effacer' things.id %}">Effacer</a></center></td>
                 </tr>
                 {% else %}
                 <tr>
-                        <td>{{ things.item }}</td>
+                        <td><a href="{% url 'modifier' things.id %}">{{ things.item }}</a></td>
                         <td><center><a href="{% url 'fini' things.id %}">Fini</a></center></td>
                         <td><center><a href="{% url 'effacer' things.id %}">Effacer</a></center></td>
                 </tr>

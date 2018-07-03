@@ -34,3 +34,18 @@ def fini(request, liste_id):
     item.completed = True
     item.save()
     return redirect('accueil')
+
+def modifier(request, liste_id):
+    if request.method == 'POST':
+        item = Liste.objects.get(pk=liste_id)
+
+        form = ListeForm(request.POST or None, instance=item)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, ('Contenu modifié'))
+            return redirect('accueil')
+
+    else:
+        item = Liste.objects.get(pk=liste_id)
+        return render(request, 'modif.html', {'item': item})        
