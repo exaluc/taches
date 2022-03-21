@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% if item %}
+{% if item %}
 
-    <form class="form-inline my-2 my-lg-0" method="POST">
-        {% csrf_token %}
-        <input class="form-control mr-sm-2" type="Search" placeholder="{{ item.item }}" value="{{ item.item }}" aria-label="Search" name="item">
+<form class="form-inline my-2 my-lg-0" method="POST">
+    {% csrf_token %}
+    <input class="form-control mr-sm-2" type="Search" placeholder="{{ item.item }}" value="{{ item.item }}"
+        aria-label="Search" name="item">
 
-        <imput type="hidden" value="{{ item.fini }}" name="fini">
+    <imput type="hidden" value="{{ item.fini }}" name="fini">
 
-        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Modifier</button>    
-    </form>
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Modifier</button>
+</form>
 
-    {% endif %}
+{% endif %}
 
-{% endblock %}    
+{% endblock %}
